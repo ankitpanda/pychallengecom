@@ -1,0 +1,18 @@
+import urllib, re
+
+def chain(url,n):
+    origin = urllib.urlopen(url).read()
+    store = []
+    store.append(''.join(re.findall('\d+',url)))
+    for k in range(n):
+        destno = ''.join(re.findall('\d+',origin))
+        originno = ''.join(re.findall('\d+',url))
+        store.append(destno)
+        i = url.find(originno)
+        newurl = url[:i] + destno
+        origin = urllib.urlopen(newurl).read()
+        print urllib.urlopen(newurl).read()
+        if destno == '':
+            break
+        
+chain('http://www.pythonchallenge.com/pc/def/linkedlist.php?nothing=63579', 400)
