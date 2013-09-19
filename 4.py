@@ -13,9 +13,14 @@ def chain(url,k=1):
         print "Iteration " + str(k) +":", urllib.urlopen(newurl).read()
         k += 1
         
-start = time.time()
-print '### First Iteration Cycle ###'
-chain('http://www.pythonchallenge.com/pc/def/linkedlist.php?nothing=12345')
-print '### Second Iteration Cycle ###'
-chain('http://www.pythonchallenge.com/pc/def/linkedlist.php?nothing=8022')
-print 'Program took', time.time()-start, 'seconds to yield solution.'
+if __name__ == '__main__':
+	print 'This program is being run by itself'
+        start = time.time()
+        print '### First Iteration Cycle ###'
+        chain('http://www.pythonchallenge.com/pc/def/linkedlist.php?nothing=12345')
+        print '### Second Iteration Cycle ###'
+        chain('http://www.pythonchallenge.com/pc/def/linkedlist.php?nothing=8022')
+        print 'Program took', time.time()-start, 'seconds to yield solution.'
+else:
+	print 'I am being imported from another module'
+
